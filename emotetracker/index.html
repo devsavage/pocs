@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emote Tracker (POC)</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/noty.css">
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Emote Tracker v<span id="version"></span></h1>
+        <br>
+        <div id="message"></div>
+
+        <div id="loading" class="text-center">
+            <p class="info" class="text-center">Please wait...</p>
+        </div>
+        <br>
+        <div id="connection">
+            <div class="form-inline justify-content-center">
+                <input type="text" id="channelName" class="form-control" placeholder="Enter a channel to join">
+                <button id="connect" class="btn btn-primary">Connect</button>
+            </div>
+        </div>
+
+        <div id="tracking">
+            <div class="form-inline justify-content-center">
+                <input type="text" id="emote" class="form-control" placeholder="Enter an emote to track">
+                <button id="trackEmote" class="btn btn-primary">Track</button>
+            </div>
+            <br>
+            <div class="text-center">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" id="limit">
+                        Limit count to single emote
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--     <p class="text-center">This project is meant to allow you to track how many times an emote has been typed in chat. The tracker is not exclusivly limited to tracking emotes, you are able to track any word you choose.</p> -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.tmijs.org/js/1.2.1/tmi.min.js" integrity="sha384-eE0n7sm1W7DOUI2Xh5I4qSpZTe6hupAO0ovLfqEy0yVJtGRBNfssdmjbJhEYm6Bw" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/noty.min.js"></script>
+    <script src="js/global.js"></script>
+</body>
+</html>

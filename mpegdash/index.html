@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MPEG-DASH Player (POC)</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">MPEG-DASH Live Player</h1>
+        <h4 class="text-center">Enter a valid MPEG-DASH (.mpd) URL below</h4>
+        <hr>
+        
+            <div class="col-md-8 col-md-offset-2">
+                <div id="alertContainer"></div>
+            </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div id="urlContainer">
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="dashUrl" placeholder="Enter MPEG-DASH URL">
+                        </div>   
+                    </div>
+                    <div class="row">
+                        <button id="loadUrl" class="btn btn-success btn-block">Load</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="videoContainer">
+                <hr>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video id="videoPlayer" class="embed-responsive-item" controls></video>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="text-center">For any livestreams that require you to be logged in, include the parameters after the .mpd.</p>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/dashjs/2.4.1/dash.all.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.min.js"></script>
+    <script src="js/global.js"></script>
+</body>
+</html>

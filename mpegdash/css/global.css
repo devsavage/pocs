@@ -1,0 +1,12 @@
+.container {
+    margin-top: 20px;
+}
+
+#videoContainer {
+    display: none;
+}
+
+#videoPlayer {
+/*    width: 844px;
+    height: 900px;*/
+}

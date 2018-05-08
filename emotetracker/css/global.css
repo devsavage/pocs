@@ -1,0 +1,27 @@
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+.info {
+    color: blue;
+}
+
+.warning {
+    color: yellow;
+}
+
+#tracking {
+    display: none;
+}
+
+#connection {
+    display: none;
+}
+
+.counter {
+    font-size: 24px;
+}
