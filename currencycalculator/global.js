@@ -20,24 +20,36 @@ function getCurrencyValue(type) {
     return currency[val[0]][val[1]]
 }
 
+function calculate(inputs) {
+    let values = {}
+
+    inputs.each(function() {
+        values[this.id] = calculateCurrency($(this).val(), this.id)
+    })
+
+    let getTotals = Object.values(values)
+
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    $("#totalBox").val(parseFloat(getTotals.reduce(reducer)).toFixed(2))
+}
+
 $(() => {
-    let calculate = $("#currencyForm")
+    let currencyForm = $("#currencyForm")
+    let clear = $("#clear")
 
-    calculate.submit((e) => {
-        e.preventDefault();
+    let $inputs = $('#currencyForm :input[type=number]')
 
-        let $inputs = $('#currencyForm :input[type=number]')
+    $inputs.on('keyup change', (e) => {
+        calculate($inputs)
+    })
+
+    clear.click(() => {
+        lastTotal = $("#totalBox").val() > 0 ? $("#totalBox").val() : "0.00"
+        console.log("Last total: $" + lastTotal)
         
-        let values = {}
+        $(".currency").val('0')
 
-        $inputs.each(function() {
-            values[this.id] = calculateCurrency($(this).val(), this.id)
-        })
-
-        let getTotals = Object.values(values)
-
-        const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-        $("#totalBox").val(parseFloat(getTotals.reduce(reducer)).toFixed(2))
+        calculate($inputs)
     })
 })
