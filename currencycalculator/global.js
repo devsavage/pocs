@@ -31,24 +31,40 @@ function calculate(inputs) {
 
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-    $("#totalBox").val(parseFloat(getTotals.reduce(reducer)).toFixed(2))
+    $("#total").text(numeral(parseFloat(getTotals.reduce(reducer)).toFixed(2)).format("$0,0.00"))
 }
 
 $(() => {
-    let currencyForm = $("#currencyForm")
     let clear = $("#clear")
+    let $inputs = $("#currencyForm :input[type=number]")
 
-    let $inputs = $('#currencyForm :input[type=number]')
+    $("#coin_penny").select()
 
-    $inputs.on('keyup change', (e) => {
+    $(":input").keydown(function(e){
+        if (e.keyCode === 13) {
+            let enabledInputs = $("input:enabled");
+            let index = enabledInputs.index(this);
+
+            let next = enabledInputs.eq(index + 1)
+
+            next.select()
+        }
+    });
+
+    $inputs.on("keyup change", (e) => {
+        let target = $(e.target)
+        
+        if(target.val() == "" || target.val().includes("-")) {
+            target.val("0")
+        }
+
         calculate($inputs)
     })
 
     clear.click(() => {
-        lastTotal = $("#totalBox").val() > 0 ? $("#totalBox").val() : "0.00"
-        console.log("Last total: $" + lastTotal)
+        console.log("Last total: " + $("#total").text())
         
-        $(".currency").val('0')
+        $(".currency").val("0")
 
         calculate($inputs)
     })
